@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{% static './css/add.css' %}" />
+    </head>
+    <body>
+        
+        <section class="container">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-field">
+                    <label for="word">Word :-</label>
+                    <input id='word' type="text" name="edited-text" value="{{word_instance.word}}"/>
+                </div>
+                <div class="form-field">
+                    <label for="word_meaning">Word meaning :-</label>
+                    <input id="word_meaning"  type="text" name="edited-word-meaning" value="{{word_meaning_instance.meaning}}"/>
+                </div>
+                <div class="form-field">
+                    <label for="word_synonyms">Word Synonyms :-</label>
+                    <input id="word_synonyms"  type="text" name="edited-word-synonyms" value="{{word_meaning_instance.synonyms}}"/>
+                </div>
+                <div class="form-field">
+                    <label for="word_examples">Word examples :-</label>
+                    <input id="word_examples"  type="text" name="edited-word-examples" value="{{word_meaning_instance.examples}}"/>
+                </div>
+                <div class="form-field">
+                    <label for="Priority">Priority :-</label>
+                    <select name="priority" id="Priority">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                    <div class="form-field btn">
+                        <button class="edit">Edit</button>
+                        <a href="{% url 'web:index' %}">Go Back</a>
+                    </div>
+            </form>
+        </section>
+    
+    </body>
+    </html>
